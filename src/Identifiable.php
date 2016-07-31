@@ -14,7 +14,7 @@ trait Identifiable
     /**
      * @return Identifier
      */
-    public function id() : Identifier
+    public function id()
     {
         return $this->id;
     }

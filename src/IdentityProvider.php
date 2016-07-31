@@ -10,5 +10,5 @@ interface IdentityProvider
     /**
      * @return Identifier
      */
-    public function id() : Identifier;
+    public function id();
 }
