@@ -1,0 +1,23 @@
+{
+  "name": "krixon/identity",
+  "description": "Object identity library.",
+  "type": "library",
+  "license": "proprietary",
+  "support": {
+    "issues": "https://bitbucket.org/krixon/identity/issues",
+    "wiki": "https://bitbucket.org/krixon/identity/wiki"
+  },
+  "autoload": {
+    "psr-4": {
+      "Krixon\\Identity\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Krixon\\Identity\\Test\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.4.*"
+  }
+}
