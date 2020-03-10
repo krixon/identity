@@ -2,6 +2,10 @@
 
 namespace Krixon\Identity\Test;
 
+use Krixon\Identity\Identifier;
+use Krixon\Identity\InvokableIdentifier;
+use Krixon\Identity\ProvidesIdentityWhenInvoked;
+use Krixon\Identity\StoresIdentityAsSingleString;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,8 +18,24 @@ class ProvidesIdentityWhenInvokedTest extends TestCase
      */
     public function testInvoke()
     {
-        $identifier = new Fixtures\InvokableIdentifier('foobar');
+        $identifier = self::create('foobar');
 
         self::assertSame((string) $identifier, $identifier());
+    }
+
+
+    private static function create(string $id) : InvokableIdentifier
+    {
+        return new class ($id) implements InvokableIdentifier
+        {
+            use StoresIdentityAsSingleString;
+            use ProvidesIdentityWhenInvoked;
+
+
+            public function __construct(string $id)
+            {
+                $this->id = $id;
+            }
+        };
     }
 }
