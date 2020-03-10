@@ -2,10 +2,12 @@
 
 namespace Krixon\Identity\Test;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @coversDefaultClass Krixon\Identity\ProvidesIdentityWhenInvoked
  */
-class ProvidesIdentityWhenInvokedTest extends \PHPUnit_Framework_TestCase
+class ProvidesIdentityWhenInvokedTest extends TestCase
 {
     /**
      * @covers ::__invoke

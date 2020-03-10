@@ -2,10 +2,12 @@
 
 namespace Krixon\Identity\Test;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @coversDefaultClass Krixon\Identity\CompositeIdentifier
  */
-class CompositeIdentifierTest extends \PHPUnit_Framework_TestCase
+class CompositeIdentifierTest extends TestCase
 {
     /**
      * @covers ::__construct

@@ -3,11 +3,12 @@
 namespace Krixon\Identity\Test;
 
 use Krixon\Identity\UUIDIdentifier;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass Krixon\Identity\UUIDIdentifier
  */
-class UUIDIdentifierTest extends \PHPUnit_Framework_TestCase
+class UUIDIdentifierTest extends TestCase
 {
     /**
      * @covers ::__construct
