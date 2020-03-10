@@ -6,7 +6,7 @@ use Krixon\Identity\UUIDIdentifier;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass Krixon\Identity\UUIDIdentifier
+ * @coversDefaultClass \Krixon\Identity\UUIDIdentifier
  */
 class UUIDIdentifierTest extends TestCase
 {
@@ -17,18 +17,18 @@ class UUIDIdentifierTest extends TestCase
     {
         $uuid       = 'ef546385-6bf3-4f3e-89eb-7433d56ca7b2';
         $identifier = new UUIDIdentifier($uuid);
-        
-        self::assertSame($uuid, $identifier->id());
+
+        self::assertSame($uuid, (string) $identifier);
     }
-    
-    
+
+
     /**
      * @covers ::generate
      */
     public function testCanGenerate()
     {
         $identifier = UUIDIdentifier::generate();
-        
+
         self::assertInstanceOf(UUIDIdentifier::class, $identifier);
     }
 }

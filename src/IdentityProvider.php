@@ -2,13 +2,8 @@
 
 namespace Krixon\Identity;
 
-/**
- * Classes which have an identity should implement this interface.
- */
 interface IdentityProvider
 {
-    /**
-     * @return Identifier
-     */
-    public function id();
+    public function id() : Identifier;
+    public function is(Identifier $identifier) : bool;
 }

@@ -5,7 +5,7 @@ namespace Krixon\Identity\Test;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass Krixon\Identity\ProvidesIdentityWhenInvoked
+ * @coversDefaultClass \Krixon\Identity\ProvidesIdentityWhenInvoked
  */
 class ProvidesIdentityWhenInvokedTest extends TestCase
 {
@@ -15,7 +15,7 @@ class ProvidesIdentityWhenInvokedTest extends TestCase
     public function testInvoke()
     {
         $identifier = new Fixtures\InvokableIdentifier('foobar');
-        
-        self::assertSame($identifier->id(), $identifier());
+
+        self::assertSame((string) $identifier, $identifier());
     }
 }

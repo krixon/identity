@@ -9,7 +9,7 @@ abstract class CompositeIdentifier implements Identifier
     
     /**
      * @param array  $identifiers An array of values which can be safely cast to strings.
-     * @param string $separator
+     * @param string $separator   A string used to separate identifier components.
      */
     public function __construct(array $identifiers, string $separator = '|')
     {

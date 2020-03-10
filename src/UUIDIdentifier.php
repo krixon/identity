@@ -2,30 +2,32 @@
 
 namespace Krixon\Identity;
 
+use Exception;
+use InvalidArgumentException;
+
 /**
- * A UUID based identifier.
+ * A v4 UUID based identifier.
  */
 class UUIDIdentifier implements Identifier
 {
     use StoresIdentityAsSingleString;
     use ProvidesIdentityWhenInvoked;
-    
-    
+
+
     /**
-     * @param string $value
+     * @throws InvalidArgumentException If the supplied string is not a valid UUID.
      */
-    final public function __construct(string $value)
+    final public function __construct(string $uuid)
     {
-        $this->id = self::normalize($value);
+        $this->id = self::normalize($uuid);
     }
-    
-    
+
+
     /**
-     * Generates a new version 4 UUID.
-     * 
      * @return static
+     * @throws Exception If there is no available source of random bytes.
      */
-    final public static function generate()
+    final public static function generate() : self
     {
         $data = random_bytes(16);
 
@@ -44,14 +46,14 @@ class UUIDIdentifier implements Identifier
      * @param string $uuid
      *
      * @return string
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException If the supplied string is not a valid UUID.
      */
     private static function normalize(string $uuid) : string
     {
         $uuid = trim($uuid);
         
         if (!self::isValid($uuid)) {
-            throw new \InvalidArgumentException('Supplied value is not a valid UUID.');
+            throw new InvalidArgumentException('Supplied value is not a valid UUID.');
         }
         
         return strtolower(trim($uuid, '{}'));
