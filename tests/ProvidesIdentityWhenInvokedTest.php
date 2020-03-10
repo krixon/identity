@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Krixon\Identity\Test;
 
-use Krixon\Identity\Identifier;
 use Krixon\Identity\InvokableIdentifier;
 use Krixon\Identity\ProvidesIdentityWhenInvoked;
 use Krixon\Identity\StoresIdentityAsSingleString;

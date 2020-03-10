@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Krixon\Identity;
 
 /**
@@ -15,8 +17,8 @@ namespace Krixon\Identity;
 trait ProvidesIdentityWhenInvoked
 {
     abstract public function __toString() : string;
-    
-    
+
+
     final public function __invoke() : string
     {
         return (string) $this;
