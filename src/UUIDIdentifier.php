@@ -4,6 +4,7 @@ namespace Krixon\Identity;
 
 use Exception;
 use InvalidArgumentException;
+use function substr_replace;
 
 /**
  * A v4 UUID based identifier.
@@ -36,13 +37,13 @@ class UUIDIdentifier implements Identifier
 
         return new static(vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4)));
     }
-    
-    
+
+
     /**
      * Normalizes a UUID string.
-     * 
+     *
      * Ensures UUIDs are lower case and are stripped of surrounding braces.
-     * 
+     *
      * @param string $uuid
      *
      * @return string
@@ -51,24 +52,33 @@ class UUIDIdentifier implements Identifier
     private static function normalize(string $uuid) : string
     {
         $uuid = trim($uuid);
-        
+
         if (!self::isValid($uuid)) {
             throw new InvalidArgumentException('Supplied value is not a valid UUID.');
         }
-        
-        return strtolower(trim($uuid, '{}'));
+
+        $uuid = strtolower(trim($uuid, '{}'));
+
+        // Add missing hyphens.
+        foreach ([8, 13, 18,23] as $position) {
+            if ($uuid[$position] !== '-') {
+                $uuid = substr_replace($uuid, '-', $position, 0);
+            }
+        }
+
+        return $uuid;
     }
-    
-    
+
+
     /**
      * Validates a UUID string.
-     * 
+     *
      * @param string $uuid
      *
      * @return bool
      */
     private static function isValid($uuid) : bool
     {
-        return (bool)preg_match('/^\{?[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}\}?$/i', $uuid);
+        return (bool) preg_match('/^{?[a-f\d]{8}-?(?:[a-f\d]{4}-?){3}[a-f\d]{12}}?$/i', $uuid);
     }
 }
