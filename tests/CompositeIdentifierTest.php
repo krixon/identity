@@ -2,6 +2,7 @@
 
 namespace Krixon\Identity\Test;
 
+use Krixon\Identity\CompositeIdentifier;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,7 +15,7 @@ class CompositeIdentifierTest extends TestCase
      */
     public function testCanInstantiate()
     {
-        $identifier = new Fixtures\CompositeIdentifier(['foo', 'bar', 'baz']);
+        $identifier = new CompositeIdentifier(['foo', 'bar', 'baz']);
 
         self::assertSame('foo|bar|baz', (string) $identifier);
     }
