@@ -1,6 +1,8 @@
 Identity
 ========
 
+[![Build Status](https://travis-ci.org/krixon/identity.svg?branch=master)](https://travis-ci.org/krixon/identity)
+[![Coverage Status](https://coveralls.io/repos/github/krixon/identity/badge.svg?branch=master)](https://coveralls.io/github/krixon/identity?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/krixon/identity/v/stable)](https://packagist.org/packages/krixon/identity)
 [![Latest Unstable Version](https://poser.pugx.org/krixon/identity/v/unstable)](https://packagist.org/packages/krixon/identity)
 [![License](https://poser.pugx.org/krixon/identity/license)](https://packagist.org/packages/krixon/identity)
