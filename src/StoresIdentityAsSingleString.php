@@ -17,7 +17,7 @@ trait StoresIdentityAsSingleString
 
     final public function equals(Identifier $other) : bool
     {
-        return self::class === get_class($other)
+        return static::class === get_class($other)
             && $this->id === $other->id;
     }
 }
