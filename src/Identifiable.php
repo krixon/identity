@@ -6,7 +6,7 @@ namespace Krixon\Identity;
 
 trait Identifiable
 {
-    private Identifier $id;
+    protected Identifier $id;
 
 
     public function id() : Identifier

@@ -6,7 +6,7 @@ namespace Krixon\Identity;
 
 trait StoresIdentityAsSingleString
 {
-    private string $id;
+    protected string $id;
 
 
     final public function __toString() : string
