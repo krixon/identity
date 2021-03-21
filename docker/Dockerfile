@@ -1,4 +1,4 @@
-FROM php:7.4-alpine
+FROM php:8.0-alpine
 
 ARG UID
 
@@ -11,9 +11,8 @@ RUN apk add --no-cache git openssh-client openssh g++ make autoconf icu-dev
 # Install PHP extensions.
 RUN docker-php-source extract \
     && { \
-        echo 'xdebug.remote_enable=1'; \
-        echo 'xdebug.remote_autostart=1'; \
-        echo 'xdebug.remote_connect_back=1'; \
+        echo 'xdebug.mode=debug'; \
+        echo 'xdebug.discover_client_host=0'; \
         echo 'xdebug.max_nesting_level=1200'; \
         echo 'xdebug.idekey = PHPSTORM'; \
     } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \

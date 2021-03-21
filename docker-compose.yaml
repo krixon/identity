@@ -12,4 +12,4 @@ services:
       - ${SSH_DIR:-~/.ssh}:/home/dev/.ssh
     environment:
       XDEBUG_CONFIG: ${XDEBUG_CONFIG:-}
-      PHP_IDE_CONFIG: ${PHP_IDE_CONFIG:-serverName=krixon-rules}
+      PHP_IDE_CONFIG: ${PHP_IDE_CONFIG:-serverName=krixon-identity}
