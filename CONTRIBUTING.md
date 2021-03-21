@@ -20,7 +20,7 @@ composer install
 If you have docker-compose installed, you install dependencies via a container:
 
 ```bash
-docker-compose run --rm lib composer install
+docker-compose run --rm app composer install
 ```
 
 ## Running Tests
@@ -34,5 +34,5 @@ vendor/bin/phpunit
 If you have docker-compose installed, tests can be run via a container:
 
 ```bash
-docker-compose run --rm lib phpunit
+docker-compose run --rm app phpunit
 ```
